@@ -72,3 +72,10 @@ SELECT * FROM `exams` WHERE `date` = '2020-06-20' AND `hour` >= "14:00:00";
 -- 6. Selezionare tutti i corsi di laurea magistrale (38) Count Confirmed (38)
 SELECT `name` FROM `degrees` WHERE `name` LIKE '%Magistrale%';
 ```
+
+<hr>
+
+```sql
+-- 7. Da quanti dipartimenti è composta l'università? (12)
+SELECT COUNT(*) FROM `departments`; -- COUNT(*) 12
+```
