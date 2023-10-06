@@ -79,3 +79,13 @@ SELECT `name` FROM `degrees` WHERE `name` LIKE '%Magistrale%';
 -- 7. Da quanti dipartimenti è composta l'università? (12)
 SELECT COUNT(*) FROM `departments`; -- COUNT(*) 12
 ```
+
+<hr>
+
+```sql
+-- 8. Quanti sono gli insegnanti che non hanno un numero di telefono (50)
+-- ELENCO INSEGNANTI (senza numero di telefono)
+SELECT `id`, `name`, `surname` FROM `teachers` WHERE `phone` IS NULL;
+-- Quantità (senza numero di telefono)
+SELECT COUNT(`id`) FROM `teachers` WHERE `phone` IS NULL;
+```
