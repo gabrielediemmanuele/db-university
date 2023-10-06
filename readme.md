@@ -32,14 +32,18 @@ Modellizzare la struttura di un database per memorizzare tutti i dati riguardant
 
 ```sql
 -- 1. Selezionare tutti gli studenti nati nel 1990 (160) Count Confirmed
-SELECT * FROM `students` WHERE `date_of_birth` LIKE "1990-%";
+SELECT *
+FROM `students`
+WHERE `date_of_birth` LIKE "1990-%";
 ```
 
 <hr>
 
 ```sql
 -- 2. Selezionare tutti i corsi che valgono più di 10 crediti (479) Count Confirmed
-SELECT * FROM `courses` WHERE `cfu` > '10';
+SELECT *
+FROM `courses`
+WHERE `cfu` > '10';
 ```
 
 <hr>
@@ -55,7 +59,9 @@ WHERE YEAR(CURRENT_DATE()) - YEAR(`date_of_birth`) >= '30';
 
 ```sql
 -- 4. Selezionare tutti i corsi del primo semestre del primo anno di un qualsiasi corso di laurea (286)
-SELECT * FROM `courses` WHERE `period` = "I semestre" AND `year` = "1";
+SELECT *
+FROM `courses`
+WHERE `period` = "I semestre" AND `year` = "1";
 -- SELECT COUNT(*) FROM `courses` WHERE `period` = "I semestre" AND `year` = "1"; = COUNT(*)286.
 ```
 
@@ -63,21 +69,26 @@ SELECT * FROM `courses` WHERE `period` = "I semestre" AND `year` = "1";
 
 ```sql
 -- 5. Selezionare tutti gli appelli d'esame che avvengono nel pomeriggio (dopo le 14) del 20/06/2020 (21). Count Confirmed (21)
-SELECT * FROM `exams` WHERE `date` = '2020-06-20' AND `hour` >= "14:00:00";
+SELECT *
+FROM `exams`
+WHERE `date` = '2020-06-20' AND `hour` >= "14:00:00";
 ```
 
 <hr>
 
 ```sql
 -- 6. Selezionare tutti i corsi di laurea magistrale (38) Count Confirmed (38)
-SELECT `name` FROM `degrees` WHERE `name` LIKE '%Magistrale%';
+SELECT `name`
+FROM `degrees`
+WHERE `name` LIKE '%Magistrale%';
 ```
 
 <hr>
 
 ```sql
 -- 7. Da quanti dipartimenti è composta l'università? (12)
-SELECT COUNT(*) FROM `departments`; -- COUNT(*) 12
+SELECT COUNT(*)
+FROM `departments`; -- COUNT(*) 12
 ```
 
 <hr>
@@ -85,7 +96,11 @@ SELECT COUNT(*) FROM `departments`; -- COUNT(*) 12
 ```sql
 -- 8. Quanti sono gli insegnanti che non hanno un numero di telefono (50)
 -- ELENCO INSEGNANTI (senza numero di telefono)
-SELECT `id`, `name`, `surname` FROM `teachers` WHERE `phone` IS NULL;
+SELECT `id`, `name`, `surname`
+FROM `teachers`
+WHERE `phone` IS NULL;
 -- Quantità Insegnanti (senza numero di telefono)(50)
-SELECT COUNT(`id`) FROM `teachers` WHERE `phone` IS NULL;
+SELECT COUNT(`id`)
+FROM `teachers`
+WHERE `phone` IS NULL;
 ```
