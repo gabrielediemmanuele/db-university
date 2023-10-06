@@ -32,6 +32,11 @@ Modellizzare la struttura di un database per memorizzare tutti i dati riguardant
 <hr>
 
 ```sql
--- 1. Selezionare tutti gli studenti nati nel 1990 (160)
+-- 1. Selezionare tutti gli studenti nati nel 1990 (160) Count Confirmed
 SELECT * FROM `students` WHERE `date_of_birth` LIKE "1990-%";
+```
+
+```sql
+-- 2. Selezionare tutti i corsi che valgono più di 10 crediti (479) Count Confirmed
+SELECT * FROM `courses` WHERE `cfu` > '10';
 ```
