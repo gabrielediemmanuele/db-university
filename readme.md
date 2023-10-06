@@ -86,6 +86,6 @@ SELECT COUNT(*) FROM `departments`; -- COUNT(*) 12
 -- 8. Quanti sono gli insegnanti che non hanno un numero di telefono (50)
 -- ELENCO INSEGNANTI (senza numero di telefono)
 SELECT `id`, `name`, `surname` FROM `teachers` WHERE `phone` IS NULL;
--- Quantità (senza numero di telefono)
+-- Quantità Insegnanti (senza numero di telefono)(50)
 SELECT COUNT(`id`) FROM `teachers` WHERE `phone` IS NULL;
 ```
