@@ -170,6 +170,23 @@ ORDER BY `teachers`.`surname` ASC;
 
 ```sql
 -- 6. Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54).
+SELECT `teachers`.`surname` AS "Teacher_Surname", `teachers`.`name` "Teacher_name", `departments`.`name` AS "Nome_Dipartimento"
+FROM `course_teacher`
+
+INNER JOIN `teachers`
+ON `course_teacher`.`teacher_id` = `teachers`.`id`
+
+INNER JOIN `courses`
+ON `course_teacher`.`course_id` = `courses`.`id`
+
+INNER JOIN `degrees`
+ON `degrees`.`id` = `courses`.`degree_id`
+
+INNER JOIN `departments`
+ON `departments`.`id` = `degrees`.`department_id`
+
+WHERE `departments`.`name` = "Dipartimento di Matematica"
+ORDER BY `teachers`.`surname` ASC;
 
 ```
 
