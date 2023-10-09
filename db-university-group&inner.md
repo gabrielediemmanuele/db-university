@@ -4,7 +4,7 @@ _db-university_
 
 ![image](./university.png)
 
-## Group
+## SQL Group By - TASKS
 
 1. Contare quanti iscritti ci sono stati ogni anno.
 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio.
@@ -66,7 +66,7 @@ ORDER BY `Department`  ASC
 
 <hr>
 
-# SQL _INNER JOIN_ - TASKS
+## SQL _INNER JOIN_ - TASKS
 
 1. Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia.
 2. Selezionare tutti i Corsi di Laurea Magistrale del Dipartimento di
@@ -148,14 +148,22 @@ ON `students`.`degree_id` = `degrees`.`id`
 
 INNER JOIN `departments`
 ON `degrees`.`department_id` = `departments`.`id`
-ORDER BY `students`.`surname` ASC
+ORDER BY `students`.`surname` ASC;
 ```
 
 <hr>
 
 ```sql
 -- 5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti.
-
+SELECT `teachers`.`surname`, `teachers`.`name`, `degrees`.`name` AS "Corso di Laurea", `courses`.`name` "Corso"
+FROM `course_teacher`
+INNER JOIN `teachers`
+ON `teachers`.`id` = `course_teacher`.`teacher_id`
+INNER JOIN `courses`
+ON `courses`.`id` = `course_teacher`.`course_id`
+INNER JOIN `degrees`
+ON `degrees`.`id` = `courses`.`degree_id`
+ORDER BY `teachers`.`surname` ASC;
 ```
 
 <hr>
