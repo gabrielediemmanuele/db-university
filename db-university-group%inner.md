@@ -109,6 +109,12 @@ feat: add Task 1 (Inner Join)
 
 ```sql
 -- 2. Selezionare tutti i Corsi di Laurea Magistrale del Dipartimento di Neuroscienze.
+SELECT `degrees`.`name`, `degrees`.`level`, `departments`.`name` AS "Dipartimento"
+FROM `degrees`
+INNER JOIN `departments`
+ON `degrees`.`department_id` = `departments`.`id`
+WHERE `degrees`.`level` = "magistrale"
+AND `departments`.`name` = "Dipartimento di Neuroscienze";
 
 ```
 
@@ -116,6 +122,18 @@ feat: add Task 1 (Inner Join)
 
 ```sql
 -- 3. Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44).
+-- Seleziono nome e cognome insegnante e nome del corso.
+SELECT `teachers`.`name`, `teachers`.`surname`, `courses`.`name` AS "Nome_del_corso"
+-- dalla tabella teachers prendo le info dell'insegnante.
+FROM `teachers`
+-- dalla tabella course_teacher(ponte) mi collego all'id dell'insegnante.
+INNER JOIN `course_teacher`
+ON `teachers`.`id` = `course_teacher`.`teacher_id`
+-- dalla tabella courses mi collego all'id dell'insegnante dalla tabella ponte.
+INNER JOIN `courses`
+ON `course_teacher`.`course_id` = `courses`.`id`
+-- infine dichiaro l'id dell'insegnante che mi interessa filtrare.
+WHERE `teachers`.`id` = 44;
 
 ```
 
