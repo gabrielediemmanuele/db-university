@@ -28,3 +28,21 @@ GROUP BY YEAR(`enrolment_date`);
 ```
 
 <hr>
+
+```sql
+-- 2. Contare gli insegnanti che hanno l'ufficio nello stesso edificio.
+SELECT `office_address` AS `office_name`, COUNT(*)
+FROM `teachers`
+GROUP BY `office_address`;
+```
+
+```sql
+-- Seleziona tutti gli indirizzi di ufficio e dai il nome d'ufficio, poi contali tutti
+SELECT `office_address` AS `office_name`, COUNT(*)
+-- dall'interno della tabella teachers
+FROM `teachers`
+-- e raggrupparli per indirizzi di ufficio di appartenenza.
+GROUP BY `office_address`;
+```
+
+<hr>
