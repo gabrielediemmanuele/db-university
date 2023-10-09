@@ -46,3 +46,12 @@ GROUP BY `office_address`;
 ```
 
 <hr>
+
+```sql
+-- 3. Calcolare la media dei voti di ogni appello d'esame.
+SELECT  `exam_id` "appello_esame", AVG(`vote`) "media_voti"
+FROM `exam_student`
+GROUP BY `exam_id`;
+```
+
+<hr>
