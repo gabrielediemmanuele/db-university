@@ -31,7 +31,19 @@
   data_restituzione (data)
 
 ```sql
---
+-- Selezionare tutti i prestiti effettuati da un determinato utente.
+SELECT (*)
+FROM `prestiti`
+WHERE `utente_id` = 2;
+```
+
+<hr>
+
+```sql
+-- bb.
+SELECT
+FROM
+WHERE
 ```
 
 <hr>
