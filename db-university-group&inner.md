@@ -170,7 +170,7 @@ ORDER BY `teachers`.`surname` ASC;
 
 ```sql
 -- 6. Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54).
-SELECT `teachers`.`surname` AS "Teacher_Surname", `teachers`.`name` "Teacher_name", `departments`.`name` AS "Nome_Dipartimento"
+SELECT DISTINCT `teachers`.`surname` AS "Teacher_Surname", `teachers`.`name` "Teacher_name", `departments`.`name` AS "Nome_Dipartimento"
 FROM `course_teacher`
 
 INNER JOIN `teachers`

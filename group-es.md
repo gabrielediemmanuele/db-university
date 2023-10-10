@@ -40,10 +40,39 @@ WHERE `utente_id` = 2;
 <hr>
 
 ```sql
--- bb.
-SELECT
-FROM
-WHERE
+--  Selezionare tutti i prestiti restituiti entro una data specifica.
+SELECT (*)
+FROM `prestiti`
+/* WHERE `data_restituzione` = "data"; */
+WHERE `data_restituzione` <= "2021-05-31";
+```
+
+<hr>
+
+```sql
+-- Selezionare tutti gli utenti che hanno preso in prestito
+-- almeno un libro di un determinato genere
+SELECT DISTINCT  `utenti`.`nome`, `generi`.`nome`
+FROM `utentu`
+JOIN `prestiti` ON `prestiti`.`utente_id` = `utenti`.`id`
+JOIN `libri` ON `prestiti`.`libro_id` = `libri`.`id`
+JOIN `generi` ON `libri`.`genere_id` = `generi`.`id`
+WHERE 1
+
+```
+
+<hr>
+
+```sql
+-- contare quanti libri gli uten ti hanno preso in prestito nel 2021
+-- raggruppati per genere.
+SELECT COUNT(`libri`.`id`) AS "Numero", `generi`.`nome`
+FROM `libri`
+JOIN `generi` ON `libri`.`genere_id` = `generi`.`id`
+JOIN `prestiti` ON `prestiti`.`libro_id` = `libri`.`id`
+
+WHERE YEAR(`prestiti`.`data_prestito`) = 2021
+GROUP BY  `generi`.`nome`;
 ```
 
 <hr>
